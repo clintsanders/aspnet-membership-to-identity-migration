@@ -58,7 +58,7 @@ Execute the following sql commands
 
 ```sql
 -- INSERT USERS
-INSERT INTO [aspnet-core_identity].dbo.AspNetUsers
+INSERT INTO [membership-migration].dbo.AspNetUsers
 (Id, UserName, NormalizedUserName, Email, NormalizedEmail, EmailConfirmed, PasswordHash, SecurityStamp, 
 	ConcurrencyStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnd, LockoutEnabled, 
 	AccessFailedCount, LastActivityDate, LegacyPasswordHash, IsApproved, CreateDate, LastLoginDate, 
@@ -71,18 +71,18 @@ NewID(), NewID(), NULL, 'false', 'false', aspnet_Membership.LastLockoutDate, asp
 0, aspnet_Users.LastActivityDate,	aspnet_Membership.Password, aspnet_Membership.IsApproved,
 aspnet_Membership.CreateDate,	aspnet_Membership.LastLoginDate, aspnet_Membership.LastPasswordChangedDate,
 aspnet_Membership.LastLockoutDate, aspnet_Membership.Comment
-FROM aspnet_Users
-LEFT OUTER JOIN aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId
+FROM WDE.dbo.aspnet_Users
+LEFT OUTER JOIN WDE.dbo.aspnet_Membership ON aspnet_Users.UserId = aspnet_Membership.UserId
 
 -- INSERT ROLES
-INSERT INTO [aspnet-core_identity_test].dbo.AspNetRoles(Id, Name)
+INSERT INTO [membership-migration].dbo.AspNetRoles(Id, Name)
 SELECT aspnet_Roles.RoleId, aspnet_Roles.RoleName
-FROM aspnet_Roles;
+FROM WDE.dbo.aspnet_Roles;
 
 -- INSERT USER ROLES
-INSERT INTO [aspnet-core_identity_test].dbo.AspNetUserRoles(UserId, RoleId)
+INSERT INTO [membership-migration].dbo.AspNetUserRoles(UserId, RoleId)
 SELECT UserId, RoleId
-FROM aspnet_UsersInRoles;
+FROM WDE.dbo.aspnet_UsersInRoles;
 ```
 
 ## Override password hasher for user authentication
