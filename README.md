@@ -48,6 +48,7 @@ services.AddDbContext<ApplicationDbContext>(options =>
 
 Apply entity framework migrations to create tables used by Identity Server
 From the package manager console execute the following command
+
 `PM> add-migration identity-user-properties`
 
 `PM> update-database`
