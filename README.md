@@ -35,7 +35,7 @@ public class ApplicationUser : IdentityUser
 Update the connection string in AppSettings.json for the target database server
 ```json
 "ConnectionStrings": {
-  "IdentityConnection": "Server=INS15-CS\\SQLEXPRESS;Database=identity-users;Trusted_Connection=True;MultipleActiveResultSets=true"
+  "IdentityConnection": "Server=INS15-CS\\SQLEXPRESS;Database=membership-migration;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
 ```
 
