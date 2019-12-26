@@ -90,8 +90,9 @@ Add the following class to the project
 
 ```c#
 using System;
-using Microsoft.AspNetCore.Identity;
 using System.Text;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Identity;
 
 public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 {
