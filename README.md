@@ -195,6 +195,7 @@ services.AddDefaultIdentity<ApplicationUser>()
 
 ## References Used
 https://travis.io/blog/2015/03/24/migrate-from-aspnet-membership-to-aspnet-identity/
+
 https://docs.microsoft.com/en-us/aspnet/identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 
 
