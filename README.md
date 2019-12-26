@@ -111,14 +111,14 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 	//the passwords of the new users will be hashed with new algorithm
 	public string HashPassword(ApplicationUser user, string password)
 	{
-	    return _identityPasswordHasher.HashPassword(user, password);
+		return _identityPasswordHasher.HashPassword(user, password);
 	}
 
 	public PasswordVerificationResult VerifyHashedPassword(ApplicationUser user, string hashedPassword, string providedPassword)
 	{
-	    string[] passwordProperties = hashedPassword.Split('|');
-	    if (passwordProperties.Length != 3)
-	  	{
+		string[] passwordProperties = hashedPassword.Split('|');
+		if (passwordProperties.Length != 3)
+		{
 			return _identityPasswordHasher.VerifyHashedPassword(user, hashedPassword, providedPassword);
 		}
 		else
@@ -157,7 +157,7 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 				KeyedHashAlgorithm kha = (KeyedHashAlgorithm)hm;
 				if (kha.Key.Length == bSalt.Length)
 				{
-					kha.Key = bSalt;
+					kha.Key = bSalt;	
 				}
 				else if (kha.Key.Length < bSalt.Length)
 				{
@@ -167,7 +167,7 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 				}
 				else
 				{
-					byte[] bKey = new byte[kha.Key.Length];
+					byte[] bKey = new byte[kha.Key.Length];	
 					for (int iter = 0; iter < bKey.Length;)
 					{
 						int len = Math.Min(bSalt.Length, bKey.Length - iter);
@@ -188,7 +188,7 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 		}
 
 		return Convert.ToBase64String(bRet);
-    }
+	}
 }
 ```
 
