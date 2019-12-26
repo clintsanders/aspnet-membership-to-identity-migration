@@ -89,6 +89,10 @@ FROM WDE.dbo.aspnet_UsersInRoles;
 Add the following class to the project
 
 ```c#
+using System;
+using Microsoft.AspNetCore.Identity;
+using System.Text;
+
 public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 {
 	//an instance of the default password hasher
