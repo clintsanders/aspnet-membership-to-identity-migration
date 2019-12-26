@@ -151,6 +151,7 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 		{ 
 			// MembershipPasswordFormat.Hashed 
 			HashAlgorithm hm = HashAlgorithm.Create("SHA1");
+			
 			if (hm is KeyedHashAlgorithm)
 			{
 				KeyedHashAlgorithm kha = (KeyedHashAlgorithm)hm;
