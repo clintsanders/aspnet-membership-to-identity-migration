@@ -51,7 +51,7 @@ From the package manager console execute the following command
 
 `PM> update-database`
 
-##Copy Users and Roles from Membership tables to Identity tables
+## Copy Users and Roles from Membership tables to Identity tables
 Execute the following sql commands
 
 ```sql
@@ -83,7 +83,7 @@ SELECT UserId, RoleId
 FROM aspnet_UsersInRoles;
 ```
 
-##Override password hasher for user authentication
+## Override password hasher for user authentication
 Add the following class to the project
 
 ```c#
@@ -185,7 +185,7 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 }
 ```
 
-##Add role service configuration for Identity in Startup.cs
+## Add role service configuration for Identity in Startup.cs
 
 ```c#
 services.AddDefaultIdentity<ApplicationUser>()
