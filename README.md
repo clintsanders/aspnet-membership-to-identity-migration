@@ -192,12 +192,14 @@ public class SqlPasswordHasher : IPasswordHasher<ApplicationUser>
 }
 ```
 
-## Add role service configuration for Identity in Startup.cs
+## Add password hash and role service configuration for Identity in Startup.cs
 
 ```c#
 services.AddDefaultIdentity<ApplicationUser>()
 		.AddRoles<IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>();
+
+services.AddSingleton<IPasswordHasher<ApplicationUser>, SqlPasswordHasher>();
 ```
 
 ## References Used
